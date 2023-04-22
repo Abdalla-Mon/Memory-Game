@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Tahoma, sans-serif;
+}
+@media (min-width: 768px) {
+  .container {
+    margin: auto;
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    margin: auto;
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    margin: auto;
+    width: 1170px;
+  }
+}
+.start-game {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0096883d;
+}
+.start-game span {
+  padding: 15px 12px;
+  background-color: #f44336;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+header {
+  text-align: center;
+  background-color: #eee;
+  padding: 10px;
+  color: #009688;
+  font-size: 20px;
+  font-weight: bold;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: white;
+  margin: 5px 0;
+  border: 2px solid #00bcd4;
+  font-size: 18px;
+  font-weight: bold;
+}
+.boxes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.boxes-container.no-clicking {
+  pointer-events: none;
+}
+.boxes-container .box {
+  height: 200px;
+  flex: 1;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  background-color: #00bcd4;
+  border: 2px solid #607d8b;
+}
+
+.face {
+  margin: 25px auto;
+  text-align: center;
+  height: 150px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.front {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+.front::before {
+  content: "!";
+  position: absolute;
+  font-size: 150px;
+  line-height: 150px;
+  left: 50%;
+  color: white;
+  font-weight: bold;
+  transform: translateX(-50%);
+}
+.back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+img {
+  width: 150px;
+  height: 150px;
+}
+.box.has-flibbed,
+.box.has-matched {
+  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+}
